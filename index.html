@@ -61,7 +61,7 @@
   <div class="quiz-container">
     <div id="question-container"></div>
     <div class="nav-buttons">
-      <button id="prev-btn" onclick="prevQuestion()">Anterior</button>
+      <button id="prev-btn" onclick="prevQuestion()" class="hidden">Anterior</button>
       <button id="next-btn" onclick="nextQuestion()" class="hidden">Próxima</button>
     </div>
     <div id="score-container" class="hidden"></div>
@@ -70,103 +70,98 @@
   <script>
     const questions = [
       {
-        question: "Quais são os componentes ósseos principais da parede torácica?",
-        options: ["Esterno, cartilagens costais e clavículas", "Esterno, 12 vértebras torácicas e 12 costelas", "Costelas flutuantes, costelas falsas e clavículas", "Esterno, vértebras cervicais e costelas flutuantes"],
+        question: "Quais são os componentes ósseos principais da parede torácica e como estão organizados?",
+        options: ["12 vértebras lombares, esterno e 10 costelas", "12 vértebras torácicas, esterno e 12 costelas", "7 vértebras cervicais, esterno e 14 costelas", "5 vértebras sacrais, manúbrio e 8 costelas"],
         correctAnswer: 1
       },
       {
         question: "Qual a diferença entre costelas verdadeiras, falsas e flutuantes?",
-        options: ["Costelas verdadeiras têm cartilagens independentes no esterno, falsas se ligam a outras costelas, e flutuantes não se ligam ao esterno", "Costelas verdadeiras e falsas se ligam ao esterno, e flutuantes têm cartilagens diretas", "Todas têm ligação direta com o esterno, mas de tamanhos diferentes", "Costelas falsas têm maior curvatura que as verdadeiras, enquanto as flutuantes se ligam diretamente ao manúbrio"],
+        options: ["Costelas verdadeiras têm cartilagem própria conectada ao esterno, falsas se conectam a outras cartilagens e flutuantes não têm conexão direta ao esterno", "Todas se conectam diretamente ao esterno", "Costelas falsas têm uma única face articular", "Costelas flutuantes são conectadas ao manúbrio"],
         correctAnswer: 0
       },
       {
-        question: "Quais costelas são consideradas verdadeiras?",
-        options: ["I a IV", "I a VII", "I a IX", "VIII a X"],
+        question: "Quais são as características das costelas atípicas I, II, X a XII?",
+        options: ["Mais largas, curtas e possuem duas faces articulares", "Possuem apenas uma face articular e algumas são mais curtas", "Se conectam ao esterno por duas articulações", "São as mais longas de todas as costelas"],
         correctAnswer: 1
       },
       {
-        question: "Quais costelas são classificadas como falsas?",
-        options: ["I a III", "VIII a X", "X a XII", "VII a IX"],
-        correctAnswer: 1
-      },
-      {
-        question: "Quais costelas são classificadas como flutuantes?",
-        options: ["IX e X", "XI e XII", "X e XI", "VIII e IX"],
-        correctAnswer: 1
-      },
-      {
-        question: "Qual é a função das cartilagens costais na parede torácica?",
-        options: ["Dar rigidez e apoio às costelas durante a respiração", "Conectar as costelas flutuantes ao esterno", "Prolongar as costelas anteriormente e contribuir para a elasticidade da parede torácica", "Facilitar a inserção muscular nas costelas"],
+        question: "Quais são as funções das cartilagens costais na parede torácica?",
+        options: ["Proteger os órgãos internos", "Conectar os músculos peitorais", "Contribuir para a elasticidade da parede torácica e prolongar as costelas anteriormente", "Facilitar a ligação entre as vértebras e o esterno"],
         correctAnswer: 2
       },
       {
-        question: "Quais são as características da primeira costela?",
-        options: ["Mais fina, com duas faces articulares", "Mais larga, curta e curva, com uma única face articular", "Menor e mais estreita, com duas faces articulares", "Tem um corpo longo e reto, com sulco para vasos subclávios"],
-        correctAnswer: 1
-      },
-      {
-        question: "O que define as vértebras torácicas?",
-        options: ["Fóveas costais bilaterais para articulação com as costelas e processos espinhosos longos", "Curvatura acentuada e ausência de articulação com costelas", "Fóveas costais superiores que se articulam diretamente com o esterno", "Articulação direta com as clavículas e esterno"],
+        question: "Como o esterno está dividido e quais são as funções de suas partes?",
+        options: ["Em manúbrio, corpo e processo xifoide; protege o coração e os pulmões", "Apenas corpo; função de suporte esquelético", "Em três segmentos; nenhum deles participa da respiração", "Em manúbrio e diafragma; fornece inserção muscular"],
         correctAnswer: 0
       },
       {
-        question: "Qual é a função do ângulo na costela?",
-        options: ["Unir as costelas falsas às cartilagens costais", "Facilitar a conexão entre costelas e esterno", "Marcar o limite lateral de inserção dos músculos profundos do dorso", "Proteger os nervos intercostais"],
+        question: "Quais são os aspectos característicos das vértebras torácicas e como elas se articulam com as costelas?",
+        options: ["Possuem fóveas costais para articulação com as cabeças das costelas", "Não possuem nenhuma relação com as costelas", "Articulam-se apenas com o esterno", "Têm processos espinhosos curtos"],
+        correctAnswer: 0
+      },
+      {
+        question: "O que são as fóveas costais e qual sua importância nas articulações costovertebrais?",
+        options: ["São depressões que permitem a passagem de nervos", "São pontos de articulação das vértebras com as costelas", "São ligamentos entre vértebras", "São músculos acessórios da respiração"],
+        correctAnswer: 1
+      },
+      {
+        question: "Quais são os músculos verdadeiros da parede torácica e sua função principal?",
+        options: ["Intercostais e transverso do tórax; promover a respiração", "Músculo peitoral maior; movimento dos braços", "Diafragma; controle postural", "Trapezoide; sustentação da coluna"],
+        correctAnswer: 0
+      },
+      {
+        question: "Como os músculos intercostais estão distribuídos e qual a diferença entre os externos e internos?",
+        options: ["Os músculos internos são ativos na inspiração e os externos na expiração", "Os externos são superficiais e ativos na inspiração, enquanto os internos são profundos e ativos na expiração", "Ambos são responsáveis pela expiração", "Estão localizados apenas na parte posterior da parede torácica"],
+        correctAnswer: 1
+      },
+      {
+        question: "Qual é a função dos músculos subcostais e dos levantadores das costelas?",
+        options: ["Aumentar a pressão abdominal", "Elevar as costelas e contribuir para a propriocepção", "Flexionar a coluna vertebral", "Abaixar o diafragma"],
+        correctAnswer: 1
+      },
+      {
+        question: "Como o músculo transverso do tórax está posicionado e qual é sua função?",
+        options: ["Na parte anterior do tórax; função expiratória fraca e proprioceptiva", "Na região posterior; responsável pela inspiração", "Próximo ao diafragma; controle da pressão abdominal", "No pescoço; função de sustentação cervical"],
+        correctAnswer: 0
+      },
+      {
+        question: "Como estão organizados os nervos intercostais típicos e atípicos na parede torácica?",
+        options: ["Todos seguem o mesmo trajeto intercostal", "Os típicos seguem pelo espaço intercostal, enquanto os atípicos têm funções adicionais, como o subcostal que inerva a parede abdominal", "Não há diferença entre eles", "Os atípicos apenas inervam os músculos peitorais"],
+        correctAnswer: 1
+      },
+      {
+        question: "O que diferencia o nervo subcostal (T12) dos demais nervos intercostais?",
+        options: ["Está localizado acima da primeira costela", "Não há diferença estrutural", "Sai abaixo da 12ª costela e inerva também a parede abdominal", "É responsável pela movimentação dos braços"],
         correctAnswer: 2
-      },
-      {
-        question: "Quais são os músculos verdadeiros da parede torácica?",
-        options: ["Serrátil anterior, intercostais e peitoral maior", "Serrátil posterior, intercostais e transverso do tórax", "Peitoral menor, intercostais e levantadores das costelas", "Intercostais internos e músculos do trapézio"],
-        correctAnswer: 1
-      },
-      {
-        question: "Qual é a principal função dos músculos intercostais externos?",
-        options: ["Participar ativamente da inspiração", "Ajudar na expiração forçada", "Proteger os nervos intercostais", "Fixar as costelas ao esterno"],
-        correctAnswer: 0
-      },
-      {
-        question: "Onde estão localizados os nervos intercostais?",
-        options: ["Entre os músculos intercostais internos e íntimos", "Ao longo da borda superior de cada costela", "Diretamente abaixo das clavículas", "Dentro dos sulcos vertebrais torácicos"],
-        correctAnswer: 0
-      },
-      {
-        question: "Quais artérias estão envolvidas na vascularização da parede torácica?",
-        options: ["Artérias vertebrais e intercostais", "Artérias intercostais anteriores e posteriores", "Artérias aorta e carótida", "Artérias axilares e subclávias"],
-        correctAnswer: 1
-      },
-      {
-        question: "Qual é a função do sulco da costela?",
-        options: ["Permitir a inserção do músculo diafragmático", "Proteger os vasos e nervos intercostais", "Facilitar a articulação com o processo transverso", "Proteger os órgãos internos da cavidade torácica"],
-        correctAnswer: 1
-      },
-      {
-        question: "O que define uma costela atípica?",
-        options: ["Suas faces articulares duplas", "A ausência de articulação com o esterno", "O comprimento aumentado em comparação às outras costelas", "Suas características anatômicas específicas, como no caso da costela I e II"],
-        correctAnswer: 3
-      },
-      {
-        question: "Quais músculos auxiliam na respiração entre os músculos toracoapendiculares?",
-        options: ["Peitoral maior e menor, serrátil anterior", "Levantadores das costelas e subcostais", "Escalenos e músculos intercostais externos", "Trapézio e latíssimo do dorso"],
-        correctAnswer: 0
-      },
-      {
-        question: "Como os nervos intercostais típicos e atípicos são distribuídos?",
-        options: ["T1 contribui para o plexo braquial e inerva parte da parede torácica", "T7-T11 são típicos e se localizam ao longo da parede abdominal", "T2 a T6 são atípicos e seguem pelos músculos abdominais", "T3 a T6 são típicos e inervam os músculos intercostais internos"],
-        correctAnswer: 0
       },
       {
         question: "Quais áreas são inervadas pelos ramos anteriores dos nervos espinhais torácicos?",
-        options: ["Pele do dorso e parte posterior dos membros superiores", "Articulações e pele da parede abdominal", "Músculos intercostais e a pele da parede torácica", "Articulações vertebrais e o esterno"],
+        options: ["A pele do dorso", "Os músculos abdominais inferiores", "As articulações intercostais e a pele da parede torácica", "A coluna cervical"],
         correctAnswer: 2
       },
       {
-        question: "Como a vascularização intercostal é distribuída ao longo da parede torácica?",
-        options: ["Através das artérias intercostais anteriores e posteriores", "Exclusivamente pelas artérias vertebrais", "Através das artérias aorta e carótida", "Pelas artérias pulmonares e vasos linfáticos"],
-        correctAnswer: 0
+        question: "Quais são as principais artérias envolvidas na vascularização da parede torácica?",
+        options: ["Artérias pulmonares", "Artérias intercostais e torácica interna", "Aorta e artérias carótidas", "Artérias braquiais"],
+        correctAnswer: 1
       },
       {
-        question: "Qual é a importância das articulações esternoclaviculares?",
-        options: ["Conectar as costelas falsas ao esterno", "Conectar a clavícula ao esterno e permitir a mobilidade dos membros superiores", "Proteger os vasos subclávios", "Facilitar o movimento dos músculos intercostais"],
+        question: "Como as veias intercostais estão organizadas na parede torácica?",
+        options: ["Apenas na região anterior", "Formam redes que drenam para o sistema ázigo e veia torácica interna", "Drenam diretamente para o coração", "São responsáveis pela drenagem cerebral"],
+        correctAnswer: 1
+      },
+      {
+        question: "Como a vascularização intercostal é distribuída ao longo da parede torácica?",
+        options: ["De forma aleatória", "As artérias e veias seguem paralelamente às costelas, com artérias intercostais posteriores vindo da aorta e as anteriores da torácica interna", "Somente na região anterior do tórax", "Apenas artérias intercostais anteriores estão presentes"],
+        correctAnswer: 1
+      },
+      {
+        question: "Qual é a importância das artérias intercostais na nutrição da parede torácica?",
+        options: ["Não têm função relevante", "Garantem o fluxo de sangue para os músculos intercostais e pele", "Transportam oxigênio para os pulmões", "Conectam-se ao coração diretamente"],
+        correctAnswer: 1
+      },
+      {
+        question: "Quais são as principais artérias que irrigam os músculos intercostais?",
+        options: ["Artéria femoral", "Artéria torácica interna e artérias intercostais posteriores", "Artéria aorta abdominal", "Artéria subclávia"],
         correctAnswer: 1
       }
     ];
@@ -188,6 +183,7 @@
         </div>
         <div id="feedback" class="feedback"></div>
       `;
+      document.getElementById('next-btn').classList.add('hidden');
     }
 
     function checkAnswer(selectedOption) {
@@ -197,15 +193,17 @@
       if (!hasAnsweredCorrectly) {
         if (selectedOption === questions[currentQuestionIndex].correctAnswer) {
           feedbackElement.textContent = 'Correto!';
+          feedbackElement.classList.remove('incorrect');
           feedbackElement.classList.add('correct');
           hasAnsweredCorrectly = true;
           correctAnswersFirstTry++;
           optionButtons.forEach(button => {
-            button.disabled = true);
+            button.disabled = true;
           });
-          setTimeout(nextQuestion, 2000);
+          document.getElementById('next-btn').classList.remove('hidden');
         } else {
           feedbackElement.textContent = 'Incorreto! Tente novamente.';
+          feedbackElement.classList.remove('correct');
           feedbackElement.classList.add('incorrect');
         }
       }
@@ -243,4 +241,3 @@
   </script>
 </body>
 </html>
-
