@@ -170,6 +170,10 @@
     let correctAnswersFirstTry = 0;
     let hasAnsweredCorrectly = false;
 
+    document.addEventListener("DOMContentLoaded", () => {
+      showQuestion();
+    });
+
     function showQuestion() {
       const questionContainer = document.getElementById('question-container');
       const currentQuestion = questions[currentQuestionIndex];
@@ -236,8 +240,7 @@
       scoreContainer.innerHTML = `<div class="score">Você acertou ${correctAnswersFirstTry} de ${questions.length} questões de primeira!</div>`;
       scoreContainer.classList.remove('hidden');
     }
-
-    showQuestion();
   </script>
 </body>
 </html>
+
